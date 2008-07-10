@@ -135,3 +135,8 @@ desc 'Show information about the gem.'
 task :debug_gem do
 	puts spec.to_ruby
 end
+
+desc 'Update gem spec'
+task :gemspec do
+  open("#{NAME}.gemspec", 'w').write spec.to_ruby
+end
