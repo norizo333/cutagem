@@ -142,3 +142,8 @@ task :release_local => [:clean, :package] do |t|
 	name = "#{NAME}-#{VERS}.gem"
 	sh %{scp pkg/#{name} c:/srv/www/lab.lowreal.net/public/gems/gems}
 end
+
+desc 'Update gem spec'
+task :gemspec do
+  open("#{NAME}.gemspec", 'w').write spec.to_ruby
+end
