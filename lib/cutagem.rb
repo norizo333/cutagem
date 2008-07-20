@@ -6,7 +6,7 @@ require "erb"
 require "yaml"
 
 class CutAGemCommand
-	VERSION = "0.0.8"
+	VERSION = "0.0.8.1"
 
 	include FileUtils
 	def self.run(argv)

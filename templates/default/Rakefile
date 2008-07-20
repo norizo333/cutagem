@@ -113,7 +113,7 @@ task :release => [:clean, :package] do |t|
 	pkg = "pkg/#{NAME}-#{VERS}"
 
 	require 'rubyforge'
-	rf = RubyForge.new
+	rf = RubyForge.new.configure
 	puts "Logging in"
 	rf.login
 
