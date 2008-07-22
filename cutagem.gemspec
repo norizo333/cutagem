@@ -1,11 +1,11 @@
 Gem::Specification.new do |s|
   s.name = %q{cutagem}
-  s.version = "0.0.8.2"
+  s.version = "0.0.8.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["cho45"]
   s.autorequire = %q{}
-  s.date = %q{2008-07-21}
+  s.date = %q{2008-07-23}
   s.default_executable = %q{cutagem}
   s.description = %q{executable for making new gem skelton.}
   s.email = %q{cho45@lowreal.net}
