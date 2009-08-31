@@ -108,18 +108,18 @@ class CutAGemCommand
 
 		begin
 			cp_r template, gemdir, :verbose => true
-			Pathname.glob(gemdir + "**/gemname*") do |f|
+			Pathname.glob(gemdir.to_s + "/**/gemname*") do |f|
 				new = f.parent + f.basename.to_s.sub(/gemname/, gemname)
 				puts "Rename #{f.relative_path_from(gemdir)} to #{new.relative_path_from(gemdir)}"
 				f.rename(new)
 			end
-			Pathname.glob(gemdir + "**/gempath*") do |f|
+			Pathname.glob(gemdir.to_s + "/**/gempath*") do |f|
 				new = f.parent + f.basename.to_s.sub(/gempath/, gempath)
 				puts "Rename #{f.relative_path_from(gemdir)} to #{new.relative_path_from(gemdir)}"
 				new.parent.mkpath
 				f.rename(new)
 			end
-			Pathname.glob(gemdir + "**/*") do |f|
+			Pathname.glob(gemdir.to_s + "/**/*") do |f|
 				next unless f.file?
 				f.open("r+") do |f|
 					content = f.read
@@ -168,7 +168,7 @@ class CutAGemCommand
 		templates = []
 		u_templates = []
 		if @user_templates.exist?
-			Pathname.glob(@user_templates + "*").each do |t|
+			Pathname.glob(@user_templates.to_s + "/*").each do |t|
 				t = [".cutagem/templates/#{t.basename}", t]
 				if t[1].basename.to_s == "default"
 					u_templates.unshift(t)
@@ -177,7 +177,7 @@ class CutAGemCommand
 				end
 			end
 		end
-		Pathname.glob(@templates + "*").each do |t|
+		Pathname.glob(@templates.to_s + "/*").each do |t|
 			t = ["#{t.basename}", t]
 			if t[1].basename.to_s == "default"
 				templates.unshift(t)
