@@ -137,7 +137,7 @@ class CutAGemCommand
 		if ENV["EDITOR"]
 			puts "Type any key to edit Rakefile."
 			gets
-			exec(ENV["EDITOR"], gemdir + "Rakefile")
+			exec(ENV["EDITOR"], gemdir.to_s + "/Rakefile")
 		end
 	end
 
